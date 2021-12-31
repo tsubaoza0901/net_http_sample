@@ -4,8 +4,6 @@ import (
 	"io"
 	"log"
 	"net/http"
-	// ①import package
-	// _ "net/http/pprof"
 )
 
 func hogeHandler(w http.ResponseWriter, req *http.Request) {
@@ -27,11 +25,6 @@ func hogeHandler(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 	http.HandleFunc("/", hogeHandler)
-
-	// // ②add code for pprof
-	// go func() {
-	// 	log.Println(http.ListenAndServe("localhost:6060", nil))
-	// }()
 
 	log.Println("Start Server")
 	http.ListenAndServe(":6060", nil)
