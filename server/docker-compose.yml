@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  go:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: net-http-sample-server
+    volumes:
+      - '.:/go/app'
+    ports:
+      - '6060:6060'
+    tty: true
+    stdin_open: true
+    networks:
+      - net-http-sample-net
+networks:
+  net-http-sample-net:
+    name: net-http-sample-net
